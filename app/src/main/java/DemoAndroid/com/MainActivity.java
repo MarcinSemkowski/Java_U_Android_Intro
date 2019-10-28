@@ -10,14 +10,26 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+ static  Button buttonCat;
+ private static ImageView imageView;
+  private int currentImage;
+  int[] images = {R.drawable.cat,R.drawable.cat2};
     public void catButton(View view){
-             ImageView catView = findViewById(R.id.catView);
-             catView.setImageResource(R.drawable.cat2);
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        buttonClick();
+    }
+    public void buttonClick() {
+        buttonCat =findViewById(R.id.catButton);
+        imageView = findViewById(R.id.catView);
+        buttonCat.setOnClickListener((x)->{
+            currentImage++;
+            currentImage = currentImage % images.length;
+            imageView.setImageResource(images[currentImage]);
+        } );
     }
 }
