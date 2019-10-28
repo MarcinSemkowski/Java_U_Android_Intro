@@ -5,15 +5,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     public void clickFunction(View view){
-        EditText myTextField =  findViewById(R.id.UserTextField);
-        EditText myPasswordText = findViewById(R.id.passwordText);
-
-        Log.i("UserName",myTextField.getText().toString());
-        Log.i("Password",myPasswordText.getText().toString());
+        EditText nameText = findViewById(R.id.nameText);
+        Toast.makeText(MainActivity.this, nameText.getText().toString() + "!", Toast.LENGTH_SHORT).show();
     }
 
     @Override
