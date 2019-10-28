@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
     public void clickFunction(View view){
-        Log.i("Info","Button Pressed !");
+        EditText myTextField =  findViewById(R.id.UserTextField);
+        EditText myPasswordText = findViewById(R.id.passwordText);
 
+        Log.i("UserName",myTextField.getText().toString());
+        Log.i("Password",myPasswordText.getText().toString());
     }
 
     @Override
