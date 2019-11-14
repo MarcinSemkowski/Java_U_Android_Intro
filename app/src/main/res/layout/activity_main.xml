@@ -6,60 +6,96 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/playButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="232dp"
-        android:layout_marginEnd="185dp"
-        android:layout_marginBottom="35dp"
-        android:onClick="playAudio"
-        android:text="Play"
-        app:layout_constraintBottom_toTopOf="@+id/Pause"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
 
-    <Button
-        android:id="@+id/Pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="190dp"
-        android:layout_marginBottom="488dp"
-        android:onClick="pauseAudio"
-        android:text="Pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playButton" />
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="8"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="8"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
 
-    <SeekBar
-        android:id="@+id/seekBar"
-        android:layout_width="261dp"
-        android:layout_height="16dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="54dp"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="405dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Pause" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="8"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="8"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
 
-    <SeekBar
-        android:id="@+id/scrubber"
-        android:layout_width="258dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="364dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:layout_column="8"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:text="New Button" />
+
+
+    </GridLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
