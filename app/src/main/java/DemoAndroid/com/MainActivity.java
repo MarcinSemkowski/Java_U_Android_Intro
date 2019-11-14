@@ -10,6 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.SeekBar;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,12 +21,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void playAudio(View view) {
 
+        mPlayer = MediaPlayer.create(this, R.raw.song);
         mPlayer.start();
+
 
         // "Music: www.bensound.com"
     }
 
     public void pauseAudio(View view) {
+        mPlayer =  MediaPlayer.create(this, R.raw.song);
+
         mPlayer.pause();
     }
 
@@ -65,6 +72,37 @@ public class MainActivity extends AppCompatActivity {
 
                                                  }
         );
+
+
+
+        SeekBar scrubber = findViewById(R.id.scrubber);
+        scrubber.setMax(mPlayer.getDuration());
+
+        new Timer().scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+               scrubber.setProgress(mPlayer.getCurrentPosition());
+            }
+        },0,100);
+
+        scrubber.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+              mPlayer.seekTo(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
     }
 
 }
