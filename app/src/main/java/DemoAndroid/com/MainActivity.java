@@ -1,15 +1,10 @@
 package DemoAndroid.com;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.MediaController;
-import android.widget.Toast;
-import android.widget.VideoView;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,17 +14,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        VideoView videoView = findViewById(R.id.videoView);
+        MediaPlayer mPlayer = MediaPlayer.create(this,R.raw.song);
 
-        videoView.setVideoPath("android.resource://" + getPackageName() + "/" + R.raw.video);
+        mPlayer.start();
 
-        MediaController mediaController = new MediaController(this);
-
-        mediaController.setAnchorView(videoView);
-
-        videoView.setMediaController(mediaController);
-
-        videoView.start();
+        // "Music: www.bensound.com"
 
     }
 
