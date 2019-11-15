@@ -5,33 +5,39 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
+
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SeekBar;
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    ListView listView;
+
+     public  void generatedTimesTable(int timesTable){
+
+         ArrayList<String> timesTableContent = new ArrayList<>();
+
+         for(int i =1; i <=10; i++){
+             timesTableContent.add(Integer.toString(i * timesTable));
+         }
+
+         ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,timesTableContent);
+         listView.setAdapter(arrayAdapter);
+
+     }
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ListView listView = findViewById(R.id.myListView);
+         listView =  findViewById(R.id.myListView);
         SeekBar seekBar = findViewById(R.id.seekBar);
-        ArrayList<Integer> listInteger  = new ArrayList<>();
-        for(int i =0; i <= 220; i++){
-            listInteger.add(i);
-        }
 
-        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,listInteger);
-
-        listView.setAdapter(arrayAdapter);
 
         seekBar.setMax(20);
         seekBar.setProgress(10);
@@ -47,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
                  }else{
                      timesTable = progress;
                  }
+                 generatedTimesTable(timesTable);
 
                  Log.i("Seekbar Value", Integer.toString(timesTable));
                }
@@ -61,9 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                }
            });
-
-
-
+            generatedTimesTable(10);
 
 
     }
