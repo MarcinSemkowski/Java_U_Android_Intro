@@ -9,8 +9,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SeekBar;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,24 +23,48 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView listView = findViewById(R.id.myListView);
+        SeekBar seekBar = findViewById(R.id.seekBar);
+        ArrayList<Integer> listInteger  = new ArrayList<>();
+        for(int i =0; i <= 220; i++){
+            listInteger.add(i);
+        }
 
-        ArrayList<String> myFamily = new ArrayList();
-        myFamily.add("Rob");
-        myFamily.add("Kristen");
-        myFamily.add("Tommy");
-        myFamily.add("Ralphie");
+        ArrayAdapter<Integer> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,listInteger);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,myFamily);
         listView.setAdapter(arrayAdapter);
 
-        listView.setOnItemClickListener(
+        seekBar.setMax(20);
+        seekBar.setProgress(10);
 
-                (parent, view, position, id) -> {
-                    Log.i("Person tapped: " , myFamily.get(position));
+           seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+               @Override
+               public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                 int min = 1;
+                 int timesTable;
+                 if(progress < min){
+                     timesTable = min;
+                     seekBar.setProgress(min);
+                 }else{
+                     timesTable = progress;
+                 }
 
-                }
+                 Log.i("Seekbar Value", Integer.toString(timesTable));
+               }
 
-        );
+               @Override
+               public void onStartTrackingTouch(SeekBar seekBar) {
+
+               }
+
+               @Override
+               public void onStopTrackingTouch(SeekBar seekBar) {
+
+               }
+           });
+
+
+
+
 
     }
 }
