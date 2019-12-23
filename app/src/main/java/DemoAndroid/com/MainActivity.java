@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.util.Log;
 
@@ -23,7 +24,18 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-           final Handler handler = new Handler();
+         new CountDownTimer(1000,1000){
+             public  void onTick(long millisecondsUntilDown){
+                 //Counddown is counting down (every second)
+                 Log.i("Second left",String.valueOf(millisecondsUntilDown/1000));
+             }
+             public void onFinish(){
+                 //Counter is finished!
+                 Log.i("Done","Coundown Timer Finished ");
+             }
+         }.start();
+
+          /* final Handler handler = new Handler();
             Runnable run =  new Runnable() {
                 @Override
                 public void run() {
@@ -34,7 +46,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             };
             handler.post(run);
-           }
+
+     */
+    }
 
 
     }
